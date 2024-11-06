@@ -28,7 +28,9 @@
     <view class="guess">
       <view class="guess-text"><text class="qq">猜你喜欢</text> <text class="ring">刷新</text></view>
     </view>
-    <view></view>
+    <view class="like">
+      <text></text>
+    </view>
   </view>
 </view>
 
