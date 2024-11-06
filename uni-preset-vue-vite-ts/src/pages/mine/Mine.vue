@@ -7,9 +7,20 @@
     <view class="head">
       <uni-icons type="bars" color="#fff" size="30"></uni-icons>
       <text>登录</text>
-      <uni-icons type="contact" size="30"></uni-icons>
+      <uni-icons type="search" size="30" color="#fff"></uni-icons>
     </view>
-   
+  
+    <view>
+      <uni-icons type="person" size="50" color="#000"></uni-icons>
+      <view class="form">
+        <view class="row"><input type="text" placeholder="请输入手机号"></view>
+        <view class="row captcha">
+          <input type="text" placeholder="请输入验证码" v-model="captcha">
+          <button type="primary">1233</button>
+        </view>
+        <view class="row"><button type="primary">登录</button></view>
+      </view>
+    </view>
   </view>
   <view>
     <uni-icons type="contact" size="30"></uni-icons>
