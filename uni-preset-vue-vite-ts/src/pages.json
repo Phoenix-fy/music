@@ -10,7 +10,10 @@
 			"path": "pages/discover/Discover"
 		},
 		{
-			"path": "pages/mine/Mine"
+			"path": "pages/mine/Mine",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		}
 	],
 	"globalStyle": {
