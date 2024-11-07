@@ -1,4 +1,8 @@
-<script>
+<script setup>
+import { ref } from 'vue'
+import searchDetail from './scarchDetail/searchDetail.vue'
+
+const search = ref('')
 </script>
 
 <template>
@@ -6,7 +10,7 @@
     <view class="scarchTop">
     <view class="top">
         <view class="back"><</view>
-        <input type="text" placeholder="请输入搜索内容" />
+        <input type="text" placeholder="请输入搜索内容" v-model="search" />
         <view class="Sear">搜索</view>
     </view>
     <view class="type">
@@ -33,6 +37,10 @@
     </view>
   </view>
 </view>
+<view class="searchDetail" v-if="search.length">
+  <searchDetail/>
+</view>
+
 
 </template>
 
@@ -119,4 +127,13 @@ body{
         }
     }
 }
+.searchDetail{
+  position: absolute;
+  top: 80rpx;
+  width: 100vb;
+  height: 100%;
+  background-color: #f7f9fc;
+  z-index: 9;
+}
+
 </style>

@@ -3,46 +3,45 @@
 </script>
 
 <template>
-    <view>
+  <view class="gologin">
+    <view class="head">
+      <uni-icons type="bars" color="#fff" size="30"></uni-icons>
+      <text>登录</text>
+      <uni-icons type="search" size="30" color="#fff"></uni-icons>
+    </view>
+    <view class="btn">
       <navigator url="/pages/login/login">
         <button>去登录</button>
       </navigator>
     </view>
-    <!-- <template>
-      <view class="header">
-        <image class="avatar" ></image>
-        <view class="nickname">
-        </view>
-        <view class="desc">
-          <view class="desc-tag">
-            <text class="bold"></text>关注
-          </view>
-          <view class="desc-tag">
-            <text class="bold"></text>粉丝
-          </view>
-          <view class="desc-tag">
-            <text class="bold"></text>等级
-          </view>
-          <view class="desc-tag">
-            <text class="bold">首</text>听歌
-          </view>
-        </view>
-      </view>
-      <uni-list>
-        <uni-list-item
-        ></uni-list-item>
-      </uni-list>
-    </template> -->
+  </view>
 </template>
 
 <style lang="scss" scoped>
-.header {
-    height: 450rpx;
-    overflow: hidden;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+.gologin{
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  .head{
+    height: 100rpx;
+    background-color: #c20c0c;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    justify-content: space-between;
+    padding: 0 40rpx;
   }
+}
+// .header {
+//     height: 450rpx;
+//     overflow: hidden;
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     background-size: cover;
+//   }
   .avatar {
     width: 150rpx;
     height: 150rpx;
