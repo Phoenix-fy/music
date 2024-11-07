@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { getBannerApi, type BannerItem } from '../../services/index'
+import swper from '@/pages/index/components/swper.vue'
+import nightlist from "../index/components/nightlist.vue";
 
 const banner = ref<BannerItem[]>([])
 
@@ -17,42 +19,24 @@ getBanner()
 </script>
 
 <template>
-  <view class="content">
+  <view>
+    <swper />
   </view>
+  <view class="list">
+    <view><nightlist  /></view>
+  </view>
+  
 </template>
 
 <style lang="scss">
-.title{
-  width: 200px;
-  height: 40px;
-  background-color: aqua;
-}
-input{
-  border: 1px solid #ccc;
-}
-.content {
+body{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  .list{
+    flex: 1;
+    height: 100vh;
+    width: 100vw;
+  }
 }
 
-.logo {
-  height: 200rpx;
-  width: 200rpx;
-  margin-top: 200rpx;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50rpx;
-}
 
-.text-area {
-  display: flex;
-  justify-content: center;
-}
-
-.title {
-  font-size: 36rpx;
-  color: #8f8f94;
-}
 </style>
