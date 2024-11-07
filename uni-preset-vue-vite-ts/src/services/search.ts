@@ -8,6 +8,10 @@ import request from "./request"
 //   searchres: any[];
 //   code: number;
 // }
-export const getSearchApi = () => {
-  return request<any>({url:'https://zyxcl.xyz/music/api/search?keywords=海阔天空'})
+export const getSearchApi = (id:any) => {
+    console.log(id)
+  return request<any>({url:`https://zyxcl.xyz/music/api/cloudsearch?keywords=${id}`})
+}
+export const getSearchDetailApi = (id:any) => {
+    return request<any>({url:`https://zyxcl.xyz/music/api/search/${id}`})
 }
