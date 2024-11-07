@@ -2,7 +2,9 @@
 import { ref } from 'vue'
 import { getBannerApi, type BannerItem } from '../../services/index'
 import swper from '@/pages/index/components/swper.vue'
+import handlist from "../index/components/handlist.vue";
 import nightlist from "../index/components/nightlist.vue";
+
 
 const banner = ref<BannerItem[]>([])
 
@@ -22,7 +24,11 @@ getBanner()
   <view>
     <swper />
   </view>
+ 
   <view class="list">
+   <view>
+    <handlist/>
+  </view>
     <view><nightlist  /></view>
   </view>
   
@@ -31,10 +37,12 @@ getBanner()
 <style lang="scss">
 body{
   display: flex;
+
   .list{
     flex: 1;
     height: 100vh;
     width: 100vw;
+    padding: 20rpx;
   }
 }
 
