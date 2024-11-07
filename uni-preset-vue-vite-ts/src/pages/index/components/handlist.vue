@@ -36,7 +36,7 @@
 
 <template>
    <h3>下午好</h3> 
-  <view class="list">
+  <view class="listM">
     <view v-for="item in navIcons" :key="item.id" class="list-item">
       <img :src="item.iconUrl"  @click="link(item.url)"></img>
       <view class="list-name">
@@ -48,7 +48,7 @@
 
 
 <style lang="scss" scoped>
-  .list {
+  .listM{
     width: 100vw;
     height: 300rpx;
     display: flex;
@@ -58,11 +58,11 @@
     scrollbar-width: none; 
     -ms-overflow-style: none; 
       img{
-        width: 200rpx;
+    width: 200rpx;
       height: auto;
       background: #f0f0f0;
       border-radius: 10rpx;
-      margin: 0 20rpx; 
+      margin: 0 8rpx; 
       }
       .list-name {
       font-size: 12px;

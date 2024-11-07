@@ -27,7 +27,7 @@ onMounted(() => {
 <template>
     <view class="hand">推荐歌单></view>
     <view class="box">
-    <view class="list" v-for="item in getRandomItems(personalized)" :key="item.id"><text><img :src="item.picUrl" alt=""><view>{{ item.name }}</view></text></view>
+    <view class="listN" v-for="item in getRandomItems(personalized)" :key="item.id"><text><img :src="item.picUrl" alt=""><view>{{ item.name }}</view></text></view>
     </view>
 </template>
 
@@ -42,9 +42,9 @@ onMounted(() => {
   scrollbar-width: none; 
   -ms-overflow-style: none; 
 
-  .list {
+  .listN {
     display: flex;
-    margin-right: 20rpx;
+    margin-right: 15rpx;
     flex-direction: column; 
     height: 300rpx; 
 

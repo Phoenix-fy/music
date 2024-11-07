@@ -21,7 +21,7 @@ getBanner()
 </script>
 
 <template>
-  <view>
+  <view class="hander">
     <swper />
   </view>
  
@@ -38,7 +38,15 @@ getBanner()
 body{
   display: flex;
 
+  .hander{
+    position: fixed; 
+    top: 0; 
+    left: 0;
+    z-index: 1000;
+    background: white;
+  }
   .list{
+    margin-top: 160rpx;
     flex: 1;
     height: 100vh;
     width: 100vw;
