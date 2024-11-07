@@ -58,7 +58,11 @@
 			{
 				"pagePath": "pages/mine/Mine",
 				"text": "我的"
-		  }
+		  },
+		  {
+			"pagePath": "pages/search/search",
+			"text": "搜索"
+	      }
 	  ]
 	},
 	"easycom": {
