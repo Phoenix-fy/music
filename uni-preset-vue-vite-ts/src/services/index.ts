@@ -8,6 +8,16 @@ interface BannerRes {
   banners: BannerItem[];
   code: number;
 }
+export interface playItem {
+  coverImgUrl: string;
+  name: string;
+  id:number
+}
+
+interface playRes{
+  playlists:playItem[],
+  code:number
+}
 
 interface GetQrKeyApiItem {
   unikey: string;
@@ -48,6 +58,15 @@ interface getQrStatusApiRes {
 export const getBannerApi = () => {
   return request<BannerRes>({url:'https://zyxcl.xyz/music/api/banner'})
 }
+
+export const topPlaylistApi = () => {
+  return request<playRes>({ url: 'https://zyxcl.xyz/music/api/top/playlist',
+    data:{
+      limit:10
+      // order:new
+}})
+}
+
 // 二维码 key 生成接口
 export const getQrKeyApi = () => {
   return request<GetQrKeyApiRes>({ url: `https://zyxcl.xyz/music/api/login/qr/key?times=${Date.now()}`})

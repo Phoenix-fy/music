@@ -3,16 +3,25 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationStyle": "custom"
 			}
 		},
 		{
-			"path": "pages/discover/Discover"
+			"path": "pages/discover/Discover",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		},
 		{
 			"path": "pages/mine/Mine",
 			"style": {
 				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/search/search",
+			"style": {
+				"navigationStyle":"custom"
 			}
 		},
 		{
@@ -49,7 +58,11 @@
 			{
 				"pagePath": "pages/mine/Mine",
 				"text": "我的"
-		  }
+		  },
+		  {
+			  "pagePath": "pages/search/search",
+			  "text": "搜索"
+		}
 	  ]
 	},
 	"easycom": {

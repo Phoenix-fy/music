@@ -1,12 +1,33 @@
-<script>
+<script setup>
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { getSearchDetailApi } from '@/services/search';
+import searchDetail from './scarchDetail/searchDetail.vue'
+const router = useRouter()
+const search = ref('')
+const rend = ref('')
+const getSearch = async () => {
+  try {
+    const res = await getSearchDetailApi('hot')
+    console.log(res.data.result.hots)
+    rend.value = res.data.result.hots
+  } catch(e) {
+    console.log(e)
+  }
+}
+getSearch()
+const Back = () => {
+  router.back()
+}
+
 </script>
 
 <template>
 <view class="Search">
     <view class="scarchTop">
     <view class="top">
-        <view class="back"><</view>
-        <input type="text" placeholder="请输入搜索内容" />
+        <view class="back" @click="Back"><</view>
+        <input type="text" placeholder="请输入搜索内容" v-model="search" />
         <view class="Sear">搜索</view>
     </view>
     <view class="type">
@@ -28,15 +49,22 @@
     <view class="guess">
       <view class="guess-text"><text class="qq">猜你喜欢</text> <text class="ring">刷新</text></view>
     </view>
-    <view></view>
+    <scroll-view scroll-x="true" class="like">
+      <view v-for="item in rend">{{ item.first }}</view>
+    </scroll-view>
   </view>
 </view>
+<scroll-view scroll-y class="searchDetail" v-if="search.length">
+  <searchDetail :search="search" />
+</scroll-view>
+
 
 </template>
 
 <style lang="scss">
 body{
     padding-bottom: 80rpx;
+    background-color: #f7f9fc;
 }
 .Search {
     margin: 0;
@@ -109,12 +137,38 @@ body{
         display: flex;
         .qq{
             margin-left: 20rpx;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
         }
         .ring{
             margin-left: 500rpx;
         }
     }
+}
+.searchDetail{
+  position: absolute;
+  top: 80rpx;
+  width: 100vb;
+  height: 100%;
+  background-color: #f7f9fc;
+}
+.like{
+  z-index: -1;
+  width: 100%;
+  height: 40rpx;
+  white-space: nowrap;
+  overflow-x: auto;
+  margin-top: 10rpx;
+  view{
+    display: inline-block;
+    height: 40rpx;
+    font-size: 20rpx;
+    padding: 0 20rpx;
+    border-radius: 30%;
+    text-align: center;
+    line-height: 40rpx;
+    margin: 0 10rpx;
+    background-color: #ffffff;
+  }
 }
 </style>
