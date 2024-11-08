@@ -1,13 +1,14 @@
 <script setup>
-import { ref, watch} from 'vue'
+import { ref, watch, defineExpose, onUpdated } from 'vue'
 import { getSearchApi, getSearchDetailApi } from '@/services/search';
 const props = defineProps(['search'])
 
 const searchList = ref('')
-const search = props.search
-const getSearch = async () => {
+let search = props.search
+const getSearch = async (search) => {
   try {
     const res = await getSearchApi(search)
+    console.log(res.data)
     console.log(res.data.result.songs)
     searchList.value = res.data.result.songs
   } catch(e) {
@@ -23,10 +24,14 @@ const getSearch = async () => {
 //   }
 // }
 // getSearchDetail()
-watch(props.search, () => {
-  console.log(props.search)
-  getSearch(props.search)
-},{immediate: true})
+defineExpose({
+  getSearch
+})
+
+onUpdated(() => {
+  const search = props.search
+  getSearch(search)
+})
 </script>
 
 <template>
@@ -43,7 +48,7 @@ watch(props.search, () => {
 </view>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .list{
     display: flex;
     flex-direction: column;
