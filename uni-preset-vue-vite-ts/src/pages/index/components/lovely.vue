@@ -6,7 +6,7 @@ const NewMusic = ref<personalizedItem[]>([])
 const getNewMusic = async () => {
     try{
         const res = await getNewMusicApi()
-        console.log(res.data.result)
+        // console.log(res.data.result)
         NewMusic.value = res.data.result
     }catch(e){
         console.log(e)

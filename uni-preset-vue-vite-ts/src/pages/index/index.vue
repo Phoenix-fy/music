@@ -5,6 +5,8 @@ import swper from '@/pages/index/components/swper.vue'
 import handlist from "../index/components/handlist.vue";
 import nightlist from "../index/components/nightlist.vue";
 import lovely from './components/lovely.vue';
+import Charts from './components/Charts.vue';
+
 
 
 const banner = ref<BannerItem[]>([])
@@ -24,11 +26,11 @@ getBanner()
   <view class="hander">
     <swper />
   </view>
- 
   <view class="list">
   <view><handlist/></view>
   <view><nightlist/></view>
   <view><lovely/></view>
+  <view><Charts/></view>
   </view>
 </template>
 
