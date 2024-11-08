@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch, defineExpose, onUpdated } from 'vue'
+import { ref, defineExpose, onUpdated } from 'vue'
 import { getSearchApi, getSearchDetailApi } from '@/services/search';
 const props = defineProps(['search'])
 

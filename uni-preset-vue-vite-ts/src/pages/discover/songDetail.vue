@@ -20,7 +20,7 @@ songList()
 </script>
 
 <template>
-  <navigator url="/pages/discover/music"><<---</navigator>
+  <navigator url="/pages/discover/music"><uni-icons type="arrow-left" size="20"></uni-icons></navigator>
   <image :src="list.coverImgUrl"></image>
   <view class="playing">
     <!-- <uni-icons type="contact" size="30"></uni-icons> -->

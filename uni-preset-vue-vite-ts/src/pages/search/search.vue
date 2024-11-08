@@ -1,11 +1,9 @@
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
 import { getSearchDetailApi, getHotListApi } from '@/services/search';
 
 import searchDetail from './scarchDetail/searchDetail.vue'
 
-const router = useRouter()
 const search = ref('')
 const rend = ref('')
 const list = ref([])
@@ -50,20 +48,20 @@ const ListDetail = async (id) => {
 }
 
 const ToSinger = () => {
-  router.push({
-    path: '/pages/search/singer/Singer'
-  })
+  uni.navigateTo({
+	url: `/pages/search/singer/Singer`
+})
 }
 const ToTypeArea = () => {
-  router.push({
-    path: '/pages/search/typeArea/typrArea'
-  })
+  uni.navigateTo({
+	url: `/pages/search/typeArea/typrArea`
+})
 }
 
 getHotList()
 getSearchDetail()
 const Back = () => {
-  router.back()
+  uni.navigateBack()
 }
 
 </script>
@@ -106,9 +104,9 @@ const Back = () => {
 
       <view v-for="item in list" :key="item.name" class="sBox">
         <img :src="item.coverImgUrl" alt="">
-        <view v-if="ListDetail(item.id)">
+        <!-- <view v-if="ListDetail(item.id)">
           <text v-for="arr in listDetail">{{ arr.name }}</text>
-        </view>
+        </view> -->
       </view>
 
     </view>

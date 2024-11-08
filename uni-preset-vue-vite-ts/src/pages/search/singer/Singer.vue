@@ -1,9 +1,7 @@
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
-import { getHotListApi } from '@/services/search';
+import { getHotListApi } from '@/services/search'
 
-const router = useRouter()
 const list = ref([])
 
 
@@ -18,8 +16,13 @@ const Singer = async (detail) => {
 }
 Singer('artist/list?type=-1')
 
+const ToSingerDetail = (id) => {
+    uni.navigateTo({
+	url: `/pages/search/singer/singerDetail/singerDetail?id=${id}`
+})
+}
 const Back = () => {
-    router.back()
+    uni.navigateBack()
 }
 
 </script>
@@ -36,8 +39,7 @@ const Back = () => {
 
         <view class="list">
             <scroll-view scroll-y>
-                <view></view>
-                <view class="list-item" v-for="item in list" :key="item.id">
+                <view class="list-item" v-for="item in list" :key="item.id" @click="ToSingerDetail(item.id)">
                     <view class="list-item-text">
                         <view class="list-item-text2"><img :src="item.picUrl" alt=""></view>
                         <view class="list-item-text1">{{item.name}}</view>
@@ -53,7 +55,7 @@ const Back = () => {
 <style lang="scss" scoped>
 .Singer{
     width: 100vb;
-    height: 100vh;
+    height: 180rpx;
     display: flex;
     flex-direction: column;
     .Top{
@@ -84,6 +86,7 @@ const Back = () => {
             gap: 20rpx;
         }
         .type{
+            margin-left: 20rpx;
             width: 120rpx;
             height: 30rpx;
         }
