@@ -7,7 +7,10 @@
 			}
 		},
 		{
-			"path": "pages/discover/Discover"
+			"path": "pages/discover/Discover",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		},
 		{
 			"path": "pages/mine/Mine",
@@ -38,7 +41,26 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/discover/rank",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/discover/music",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/discover/songDetail",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		}
+		
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -69,9 +91,9 @@
 				"text": "我的"
 		  },
 		  {
-			  "pagePath": "pages/search/search",
-			  "text": "搜索"
-		}
+			"pagePath": "pages/search/search",
+			"text": "搜索"
+	      }
 	  ]
 	},
 	"easycom": {
