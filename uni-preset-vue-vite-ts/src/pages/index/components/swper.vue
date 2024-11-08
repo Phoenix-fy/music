@@ -30,6 +30,7 @@ body{
         border-radius: 50rpx;
         padding-left: 20rpx;
         background-color: #EAEDF1;    
+        pointer-events: none;
        }
         
     }
