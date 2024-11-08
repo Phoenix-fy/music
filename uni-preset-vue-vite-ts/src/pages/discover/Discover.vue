@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
+// import { useRouter } from 'vue-router'
 import music from '../../pages/discover/music.vue'
 import podcast from '../../pages/discover/podcast.vue'
 import audiobook from '../../pages/discover/audiobook.vue'
