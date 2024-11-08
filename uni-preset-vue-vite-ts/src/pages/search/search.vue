@@ -26,9 +26,9 @@ const Back = () => {
 <view class="Search">
     <view class="scarchTop">
     <view class="top">
-        <view class="back" @click="Back"><</view>
-        <input type="text" placeholder="请输入搜索内容" v-model="search" />
-        <view class="Sear">搜索</view>
+      <view class="back" @click="Back"><</view>
+      <input type="text" placeholder="请输入搜索内容" v-model="search" />
+      <view class="Sear">搜索</view>
     </view>
     <view class="type">
       <view class="type-item">
@@ -116,14 +116,14 @@ body{
     display: flex;
     flex-wrap: wrap;
    .type-item{
-    margin-top: 30rpx;
-        width: 184rpx;
-        height: 40rpx;
-        text-align: center;
-        line-height: 40rpx;
-        &:not(:last-child){
-            border-right: 1px solid #ccc;
-        }
+      margin-top: 30rpx;
+      width: 184rpx;
+      height: 40rpx;
+      text-align: center;
+      line-height: 40rpx;
+      &:not(:last-child){
+        border-right: 1px solid #ccc;
+      }
    }
 }
 

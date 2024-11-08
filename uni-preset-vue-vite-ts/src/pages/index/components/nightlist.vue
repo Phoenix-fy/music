@@ -4,7 +4,7 @@ import { getpersonalizedApi, type personalizedItem } from '@/services/index'
 
 const personalized = ref<personalizedItem[]>([])
 
-    const getpersonalized = async () => {
+const getpersonalized = async () => {
   try {
     const res = await getpersonalizedApi()
     console.log(res.data.result)
@@ -25,10 +25,10 @@ onMounted(() => {
 </script>
 
 <template>
-    <view class="hand">推荐歌单></view>
-    <view class="box">
-    <view class="listN" v-for="item in getRandomItems(personalized)" :key="item.id"><text><img :src="item.picUrl" alt=""><view>{{ item.name }}</view></text></view>
-    </view>
+  <view class="hand">推荐歌单></view>
+  <view class="box">
+  <view class="listN" v-for="item in getRandomItems(personalized)" :key="item.id"><text><img :src="item.picUrl" alt=""><view>{{ item.name }}</view></text></view>
+  </view>
 </template>
 
 <style lang="scss" scoped>

@@ -1,4 +1,5 @@
 import request from "./request"
+const cookie = uni.getStorageSync('curCookie')
 
 export interface BannerItem {
   imageUrl: string;
@@ -121,7 +122,11 @@ export const getQrStatusApi = (key: string) => {
 }
 // 登录状态
 export const loginStatusApi = () => {
-  return request({url:'https://zyxcl.xyz/music/api/login/status'})
+  return request({url:'https://zyxcl.xyz/music/api/login/status',
+    header: {
+      'Cookie': cookie
+    }
+  })
 }
 // 用户详情
 export const userDetailApi = (uid: string) => {
@@ -129,6 +134,9 @@ export const userDetailApi = (uid: string) => {
     url: 'https://zyxcl.xyz/music/api/user/detail',
     data: {
       uid
+    },
+    header: {
+      'Cookie': cookie
     }
   })
 }

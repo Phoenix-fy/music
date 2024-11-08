@@ -46,7 +46,7 @@ body{
     background: white;
   }
   .list{
-    margin-top: 160rpx;
+    margin-top: 100rpx;
     flex: 1;
     height: 100vh;
     width: 100vw;
