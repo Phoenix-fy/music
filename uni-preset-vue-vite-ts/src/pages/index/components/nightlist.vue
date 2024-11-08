@@ -4,7 +4,7 @@ import { getpersonalizedApi, type personalizedItem } from '@/services/index'
 
 const personalized = ref<personalizedItem[]>([])
 
-    const getpersonalized = async () => {
+const getpersonalized = async () => {
   try {
     const res = await getpersonalizedApi()
     personalized.value = res.data.result

@@ -18,6 +18,12 @@ watchEffect(async () => {
   }
 })
 
+const goSearch = () => {
+  uni.switchTab({
+    url: '/pages/search/search'
+  })
+}
+
 </script>
 
 <template>
@@ -26,9 +32,10 @@ watchEffect(async () => {
     <view class="head">
       <uni-icons type="bars" color="#fff" size="30" @click="showLeft = true"></uni-icons>
       <text>登录</text>
-      <uni-icons type="search" size="30" color="#fff"></uni-icons>
+      <uni-icons type="search" size="30" color="#fff" @click="goSearch"></uni-icons>
     </view>
     <view class="btn" >
+      <view class="userImg"></view>
       <navigator url="/pages/login/login">
         <button>去登录</button>
       </navigator>
@@ -54,39 +61,5 @@ watchEffect(async () => {
     padding: 0 40rpx;
   }
 }
-// .header {
-//     height: 450rpx;
-//     overflow: hidden;
-//     background-repeat: no-repeat;
-//     background-position: center;
-//     background-size: cover;
-//   }
-  .avatar {
-    width: 150rpx;
-    height: 150rpx;
-    border-radius: 50%;
-    border: 1px solid #ffffff;
-    margin: 100rpx auto 20rpx;
-    display: block;
-  }
-  .nickname {
-    text-align: center;
-    color: #ffffff;
-    font-weight: bold;
-  }
-  .desc {
-    display: flex;
-    justify-content: center;
-    color: #cfc4c4;
-    font-size: 14px;
-    padding: 20rpx 0;
-  }
-  .desc-tag {
-    margin: 0 20rpx;
-  }
-  .bold {
-    font-weight: bold;
-    margin-right: 10rpx;
-    color: #ffffff;
-  }
+
 </style>
