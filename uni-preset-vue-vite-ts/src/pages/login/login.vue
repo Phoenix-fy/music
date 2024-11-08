@@ -1,9 +1,13 @@
 <script lang="ts" setup>
-import { ref } from "vue"
+import { onBeforeMount, ref } from "vue"
 import { useRouter } from 'vue-router'
 import { getQrKeyApi, getQrDataApi, getQrStatusApi } from "@/services"
+import { useUserStore } from "@/store/user"
 
 const router = useRouter()
+const use = useUserStore()
+
+use.getUserDetail()
 // 二维码图片
 const qrimg = ref('')
 // 二维码key
@@ -19,7 +23,7 @@ let timer: any = null
 const check = () => {
   timer = setInterval(async () => {
     const res = await getQrStatusApi(unikey.value)
-    console.log(res.data.code)
+    // console.log(res.data.code)
     qrCode.value = res.data.code
     // 二维码过期
     if( qrCode.value === 800){
@@ -35,10 +39,20 @@ const check = () => {
       qrStatus.value = '扫码成功'
       // 成功将cookie存本地
       uni.setStorageSync('curCookie', res.data.cookie)
-    }
-    
+      // 获取用户信息
+      use.getAccount()
+      uni.showToast({
+        title: '登录成功',
+        icon: 'success'
+      })
+      clearInterval(timer)
+      setTimeout(() => {
+        uni.switchTab({
+          url: '/pages/index/index'
+        })
+      }, 1000)
+    }  
   }, 2000)
-  
 }
 
 const getQR = async () => {
@@ -54,6 +68,19 @@ const getQR = async () => {
   check()
 }
 getQR()
+
+// 如果二维码过期
+const qred = () => {
+  if (qrCode.value === 800) {
+    qrCode.value = null
+    getQR()
+  }
+}
+
+// 销毁定时器
+onBeforeMount(() => {
+  clearInterval(timer)
+})
 </script>
 
 <template>
@@ -67,7 +94,8 @@ getQR()
     <view class="login">
       <view class="qr-box">
         <image :src="qrimg" mode="widthFix"></image>
-        <view class="qr-code">{{ qrStatus }}</view>
+        <text>扫码登录</text>
+        <view class="qr-code" v-if="qrCode !== null && qrCode !== 801" @click="qred">{{ qrStatus }}</view>
       </view>
     </view>
   </view>
@@ -94,30 +122,38 @@ getQR()
 .login{
   display: flex;
   flex-direction: column;
-  padding: 40rpx 60rpx;
-  margin-top: 50rpx;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(to bottom right,  #1E1F20, #c20c0c);
   .qr-box{
-    width: 100%;
-    height: 100%;
+    width: 500rpx;
+    height: 600rpx;
+    position: relative;
+    margin-top: 200rpx;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
     image{
       width: 500rpx;
       height: 500rpx;
       background-color: #c20c0c;
-      margin-top: 100rpx;
+      // margin-top: 100rpx;
+    }
+    text{
+      color: #fff; 
+      margin-top: 40rpx; 
+      font-size: 18px;
     }
     .qr-code{
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 100%;
+      width: 500rpx;
+      height: 500rpx;
       background: rgba($color: #ffffff, $alpha: .8);
       text-align: center;
-      line-height: 650rpx;
+      line-height: 500rpx;
       font-size: 20px;
     }
   }

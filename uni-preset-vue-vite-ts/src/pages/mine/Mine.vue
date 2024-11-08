@@ -1,15 +1,34 @@
-<script setup>
+<script lang="ts" setup>
+import { useUserStore } from "@/store/user"
+import { userPlaylistApi } from '@/services/index'
+import { ref, watchEffect } from "vue"
+import UserBar from "../../components/userBar/UserBar.vue";
+
+const store = useUserStore()
+const palylist = ref([])
+const showLeft = ref(false)
+store.getAccount()
+// store.getUserDetail()
+
+watchEffect(async () => {
+  if (store.account?.id) {
+    const res = await userPlaylistApi(store.account.id)
+    console.log(res.data)
+    // playlist.value = res.playlist
+  }
+})
 
 </script>
 
 <template>
+  <UserBar v-model:show="showLeft"></UserBar>
   <view class="gologin">
     <view class="head">
-      <uni-icons type="bars" color="#fff" size="30"></uni-icons>
+      <uni-icons type="bars" color="#fff" size="30" @click="showLeft = true"></uni-icons>
       <text>登录</text>
       <uni-icons type="search" size="30" color="#fff"></uni-icons>
     </view>
-    <view class="btn">
+    <view class="btn" >
       <navigator url="/pages/login/login">
         <button>去登录</button>
       </navigator>

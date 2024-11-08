@@ -54,7 +54,27 @@ interface getQrStatusApiRes {
   header:Status[]
 }
 
+interface userDetailApiItem {
+  anonimousUser: boolean;
+  ban: number; 
+  baoyueVersion: number;
+  createTime:number;
+  donateVersion: number;
+  id: number;
+  paidFee: boolean;
+  status: number;
+  tokenVersion : number
+  type: number
+  userName: string;
+  vipType: number;
+  whitelistAuthority: number;
+}
 
+interface userDetailApiRes {
+  data: userDetailApiItem[];
+  code: number;
+  profile: any;
+}
 export const getBannerApi = () => {
   return request<BannerRes>({url:'https://zyxcl.xyz/music/api/banner'})
 }
@@ -95,8 +115,17 @@ export const loginStatusApi = () => {
 }
 // 用户详情
 export const userDetailApi = (uid: string) => {
-  return request({
+  return request<userDetailApiRes>({
     url: 'https://zyxcl.xyz/music/api/user/detail',
+    data: {
+      uid
+    }
+  })
+}
+// 用户歌单
+export const userPlaylistApi = (uid: string) => {
+  return request({
+    url: 'https://zyxcl.xyz/music/api/user/playlist',
     data: {
       uid
     }
