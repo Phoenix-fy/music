@@ -7,7 +7,6 @@ const personalized = ref<personalizedItem[]>([])
     const getpersonalized = async () => {
   try {
     const res = await getpersonalizedApi()
-    console.log(res.data.result)
     personalized.value = res.data.result
   } catch(e) {
     console.log(e)
@@ -25,13 +24,23 @@ onMounted(() => {
 </script>
 
 <template>
-    <view class="hand">推荐歌单></view>
+    <view class="handNig">推荐歌单></view>
     <view class="box">
-    <view class="listN" v-for="item in getRandomItems(personalized)" :key="item.id"><text><img :src="item.picUrl" alt=""><view>{{ item.name }}</view></text></view>
+    <view class="listN" v-for="item in getRandomItems(personalized)" :key="item.id"><view><img :src="item.picUrl" alt=""><view>{{ item.name }}</view></view></view>
     </view>
 </template>
 
 <style lang="scss" scoped>
+.handNig {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #333;
+}
+
 .box {
   display: flex;
   flex-direction: row; 

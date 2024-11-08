@@ -8,6 +8,8 @@ export interface personalizedItem {
   id: number;
   name: string;
   picUrl: string;
+  result:personalizedItem[]
+  song:any
 }
 
 interface BannerRes {
@@ -95,6 +97,12 @@ export const topPlaylistApi = () => {
       limit:10
       // order:new
 }})
+}
+
+// 推荐新音乐
+
+export const getNewMusicApi = () => {
+  return request<personalizedItem>({ url: 'https://zyxcl.xyz/music/api/personalized/newsong'})
 }
 
 // 二维码 key 生成接口
