@@ -35,7 +35,7 @@
 </script>
 
 <template>
-   <h3>下午好</h3> 
+   <h3 class="handEr">下午好</h3> 
   <view class="listM">
     <view v-for="item in navIcons" :key="item.id" class="list-item">
       <img :src="item.iconUrl"  @click="link(item.url)"></img>
@@ -48,6 +48,11 @@
 
 
 <style lang="scss" scoped>
+.handEr{
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20rpx;
+}
   .listM{
     width: 100vw;
     height: 300rpx;

@@ -25,11 +25,42 @@
 			}
 		},
 		{
+			"path": "pages/search/singer/Singer",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/search/typeArea/typrArea",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
 			"path": "pages/login/login",
 			"style": {
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/discover/rank",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/discover/music",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/discover/songDetail",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		}
+		
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
