@@ -81,6 +81,12 @@ const qred = () => {
 onBeforeMount(() => {
   clearInterval(timer)
 })
+
+const goSearch = () => {
+  uni.switchTab({
+    url: '/pages/search/search'
+  })
+}
 </script>
 
 <template>
@@ -88,7 +94,7 @@ onBeforeMount(() => {
     <view class="head">
       <uni-icons type="left" color="#fff" size="30" @click="router.back()"></uni-icons>
       <text>登录</text>
-      <uni-icons type="search" size="30" color="#fff"></uni-icons>
+      <uni-icons type="search" size="30" color="#fff" @click="goSearch"></uni-icons>
     </view>
   
     <view class="login">
