@@ -25,6 +25,24 @@
 			}
 		},
 		{
+			"path": "pages/search/singer/Singer",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/search/singer/singerDetail/singerDetail",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/search/typeArea/typrArea",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
 			"path": "pages/login/login",
 			"style": {
 				"navigationStyle": "custom"
@@ -47,6 +65,19 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/index/components/handlist/everyday",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/index/components/handlist/Myradar",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}
 		},
 		{
 			"path": "pages/video/video",
@@ -97,4 +128,4 @@
 			"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
 		}
 	}
-}
+

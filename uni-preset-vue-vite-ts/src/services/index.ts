@@ -1,4 +1,5 @@
 import request from "./request"
+const cookie = uni.getStorageSync('curCookie')
 
 export interface BannerItem {
   imageUrl: string;
@@ -8,7 +9,10 @@ export interface personalizedItem {
   id: number;
   name: string;
   picUrl: string;
+  result:personalizedItem[]
+  song:any
 }
+
 
 interface BannerRes {
   banners: BannerItem[];
@@ -85,6 +89,58 @@ interface userDetailApiRes {
   profile: any;
 }
 
+interface data {
+  id?: number;
+  name?: string;
+  picUrl?: string;
+  playCount?: number;
+  trackNumberUpdateTime?: number;
+}
+// 每日推荐
+export interface everyday {
+  name: string;
+  id: number;
+}
+interface data{
+  id?:number;
+  name?:string;
+  picUrl?:string;
+  playCount?:number;
+  trackNumberUpdateTime?:number;
+  dailySongs:dailySongs[]
+}
+
+interface dailySongs{
+  name?:string;
+  id?:number;
+  coverImgUrl?:string;
+  playCount?:number;
+  trackNumberUpdateTime?:number;
+}
+interface response {
+  data?:dataitem;
+  code?:number;
+  msg?: string;
+}
+interface dataitem{
+  dailySongs:listitem;
+}
+interface listitem{
+  name?:string;
+  id?:number;
+  al: alitem[]
+}
+interface alitem {
+  name?:string;
+  id?:number;
+  picUrl?:string;
+
+}
+
+// 每日推荐API
+export const everydayApi = () => {
+  return request<response>({url:'https://zyxcl.xyz/music/api/recommend/songs'})
+}
 
 // 排行榜
 interface rankRes {
@@ -103,12 +159,16 @@ interface songListRes {
   code:number,
   playlist:{}
 } 
+
+
 export const getBannerApi = () => {
   return request<BannerRes>({url:'https://zyxcl.xyz/music/api/banner'})
 }
 export const getpersonalizedApi = () => {
   return request<BannerRes>({url:'https://zyxcl.xyz/music/api/personalized'})
 }
+
+
 
 // 发现云村
 export const topPlaylistApi = () => {
@@ -117,6 +177,12 @@ export const topPlaylistApi = () => {
       limit:10
       // order:new
 }})
+}
+
+// 推荐新音乐
+
+export const getNewMusicApi = () => {
+  return request<personalizedItem>({ url: 'https://zyxcl.xyz/music/api/personalized/newsong'})
 }
 
 // 二维码 key 生成接口
@@ -143,7 +209,11 @@ export const getQrStatusApi = (key: string) => {
 }
 // 登录状态
 export const loginStatusApi = () => {
-  return request({url:'https://zyxcl.xyz/music/api/login/status'})
+  return request({url:'https://zyxcl.xyz/music/api/login/status',
+    header: {
+      'Cookie': cookie
+    }
+  })
 }
 // 用户详情
 export const userDetailApi = (uid: string) => {
@@ -151,6 +221,9 @@ export const userDetailApi = (uid: string) => {
     url: 'https://zyxcl.xyz/music/api/user/detail',
     data: {
       uid
+    },
+    header: {
+      'Cookie': cookie
     }
   })
 }

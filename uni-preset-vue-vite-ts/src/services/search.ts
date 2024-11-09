@@ -15,3 +15,6 @@ export const getSearchApi = (id:any) => {
 export const getSearchDetailApi = (id:any) => {
     return request<any>({url:`https://zyxcl.xyz/music/api/search/${id}`})
 }
+export const getHotListApi = (id:any) => {
+    return request<any>({url:`https://zyxcl.xyz/music/api/${id}`})
+}
