@@ -8,7 +8,7 @@ const route = useRoute()
 const songList = async() => {
     try{
         const res = await rankSongApi(route.query.id)
-        console.log(res.data.playlist)
+        // console.log(res.data.playlist)
         list.value = res.data.playlist
     }catch(e){
         console.log(e)

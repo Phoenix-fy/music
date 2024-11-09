@@ -8,7 +8,6 @@ import lovely from './components/lovely.vue';
 import Charts from './components/Charts.vue';
 
 
-
 const banner = ref<BannerItem[]>([])
 
 const getBanner = async () => {

@@ -13,6 +13,7 @@ export interface personalizedItem {
   song:any
 }
 
+
 interface BannerRes {
   banners: BannerItem[];
   code: number;
@@ -88,6 +89,58 @@ interface userDetailApiRes {
   profile: any;
 }
 
+interface data {
+  id?: number;
+  name?: string;
+  picUrl?: string;
+  playCount?: number;
+  trackNumberUpdateTime?: number;
+}
+// 每日推荐
+export interface everyday {
+  name: string;
+  id: number;
+}
+interface data{
+  id?:number;
+  name?:string;
+  picUrl?:string;
+  playCount?:number;
+  trackNumberUpdateTime?:number;
+  dailySongs:dailySongs[]
+}
+
+interface dailySongs{
+  name?:string;
+  id?:number;
+  coverImgUrl?:string;
+  playCount?:number;
+  trackNumberUpdateTime?:number;
+}
+interface response {
+  data?:dataitem;
+  code?:number;
+  msg?: string;
+}
+interface dataitem{
+  dailySongs:listitem;
+}
+interface listitem{
+  name?:string;
+  id?:number;
+  al: alitem[]
+}
+interface alitem {
+  name?:string;
+  id?:number;
+  picUrl?:string;
+
+}
+
+// 每日推荐API
+export const everydayApi = () => {
+  return request<response>({url:'https://zyxcl.xyz/music/api/recommend/songs'})
+}
 
 // 排行榜
 interface rankRes {
@@ -106,12 +159,16 @@ interface songListRes {
   code:number,
   playlist:{}
 } 
+
+
 export const getBannerApi = () => {
   return request<BannerRes>({url:'https://zyxcl.xyz/music/api/banner'})
 }
 export const getpersonalizedApi = () => {
   return request<BannerRes>({url:'https://zyxcl.xyz/music/api/personalized'})
 }
+
+
 
 // 发现云村
 export const topPlaylistApi = () => {

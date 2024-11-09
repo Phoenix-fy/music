@@ -59,6 +59,18 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/index/components/handlist/everyday",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/index/components/handlist/Myradar",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		}
 		
 	],
