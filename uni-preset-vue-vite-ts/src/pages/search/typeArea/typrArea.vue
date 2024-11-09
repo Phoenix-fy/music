@@ -1,9 +1,7 @@
 <script setup>
 import { ref } from 'vue'
-import { useRouter } from 'vue-router'
 import { getHotListApi } from '@/services/search';
 
-const router = useRouter()
 const list = ref([])
 
 const typeArea = async () => {
@@ -17,14 +15,14 @@ const typeArea = async () => {
 }
 
 const Back = () => {
-    router.back()
+    uni.navigateBack()
 }
 typeArea()
 </script>
 
 <template>
 <view class="typeArea">
-    <view @click="Back" class="back"><uni-icons type="arrow-left" size="20"></uni-icons></view>
+    <view @click="Back" class="back"><uni-icons type="arrow-left" size="20"></uni-icons> <text class="zhuan">音乐专区</text></view>
   <scroll-view scroll-y >
     <view class="typeArea-item" v-for="item in list" :key="item.id">
         <img :src="item.coverImgUrl" alt="">
@@ -54,7 +52,7 @@ typeArea()
         margin: 20rpx;
     }
     .typeArea-item-text{
-        width: 400rpx;
+        width: 520rpx;
         height: 140rpx;
         background-color: rgb(255, 251, 127);
         border-radius: 20rpx;
@@ -62,6 +60,12 @@ typeArea()
         line-height: 140rpx;
         text-align: center;
         font-size: 12px;
+        text-wrap: nowrap;
+    }
+    .zhuan{
+        margin-left: 250rpx;
+        font-weight: 900;
+        color: #551184;
     }
 }
 </style>

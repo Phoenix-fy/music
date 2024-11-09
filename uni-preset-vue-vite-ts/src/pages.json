@@ -31,6 +31,12 @@
 			}
 		},
 		{
+			"path": "pages/search/singer/singerDetail/singerDetail",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
 			"path": "pages/search/typeArea/typrArea",
 			"style": {
 				"navigationStyle": "custom"
