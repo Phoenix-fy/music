@@ -1,10 +1,16 @@
 <script lang="ts" setup>
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { rankSongApi, type tracks } from '../../services/index'
-import { ref } from 'vue'
-const list = ref<tracks[]>([])
-
+import { ref,watch} from 'vue'
+// import { useVideoStore } from '../../store/video'
 const route = useRoute()
+const router = useRouter()
+// const useAudio = useVideoStore()
+// useAudio.songFn(route.query.id)
+// const list = useAudio.playlist
+
+const list = ref({})
+
 const songList = async() => {
     try{
         const res = await rankSongApi(route.query.id)
@@ -14,13 +20,16 @@ const songList = async() => {
         console.log(e)
     }
 }
+
+watch(() => route.query.id, async (newId) => {
+    await songList()
+})
 songList()
-
-
 </script>
 
 <template>
-  <navigator url="/pages/discover/music"><<---</navigator>
+
+  <navigator url="/pages/discover/Discover" open-type="switchTab">返回</navigator>
   <image :src="list.coverImgUrl"></image>
   <view class="playing">
     <!-- <uni-icons type="contact" size="30"></uni-icons> -->
@@ -30,7 +39,7 @@ songList()
         <uni-icons type="bars" size="30"></uni-icons>
     </text>
   </view>
-  <view v-for="(item,index) in list.tracks" class="list">
+  <view v-for="(item,index) in list.tracks" class="list" @click="router.push(`/pages/video/video?id=${item.id}`)">
     <view class="left">
         <text class="number">{{ index+1 }}</text> 
     </view>
@@ -49,7 +58,7 @@ navigator {
     top:20rpx;
     left:30rpx;
     z-index:9;
-    color:#fff;
+    color:#000;
 }
 image{
     width: 100%;

@@ -186,6 +186,18 @@ export const vedioApi = (id:number) => {
   })
 }
 
+// 单个歌曲
+export const singleApi = (ids:number) => {
+  return request({url:'https://zyxcl.xyz/music/api/song/detail',
+    data:{
+      ids:ids
+    }
+  })
+}
+
+
+
+
 // 逐字歌词
 export const lyricApi = (id:number) => {
   return request({ url:'https://zyxcl.xyz/music/api/lyric/new',

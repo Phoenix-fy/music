@@ -47,7 +47,14 @@
 			"style": {
 				"navigationStyle": "custom"
 			}
+		},
+		{
+			"path": "pages/video/video",
+			"style": {
+				"navigationStyle": "custom"
+			}
 		}
+
 		
 	],
 	"globalStyle": {

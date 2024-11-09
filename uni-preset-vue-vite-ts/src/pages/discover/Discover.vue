@@ -32,7 +32,6 @@ import live from '../../pages/discover/live.vue'
         </view>
     </view>
     
-  
 
 </template>
 
