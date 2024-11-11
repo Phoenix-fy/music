@@ -1,16 +1,18 @@
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
+const greeting = ref('')
   const navIcons = [
     {
       "id": -1,
       "name": "每日推荐",
       "iconUrl": "https://p1.music.126.net/BLSQqEQ_RFiwtxNC_Fqkug==/109951168558291458.jpg",
-      "url": ""
+      "url": "/pages/index/components/handlist/everyday"
     },
     {
       "id": -6,
       "name": "私人雷达",
       "iconUrl": "https://p2.music.126.net/7CnYo9BO2CMlzY-LjWMDdA==/109951168122680459.jpg",
-      "url": ""
+      "url": "/pages/index/components/handlist/Myradar"
     },
     {
       "id": -2,
@@ -31,11 +33,43 @@
       "url": ""
     },
   ]
+  const link = (url) => {
+    if (!url) return
+    uni.navigateTo({
+	  url
+  })
+  }
 
+  const updateGreeting = () => {
+  const hour = new Date().getHours();
+  if (hour < 12) {
+    greeting.value = '早上好';
+  } else if (hour >= 12 && hour < 18) {
+    greeting.value = '下午好';
+  } else {
+    greeting.value = '晚上好';
+  }
+};
+
+// 初始调用
+updateGreeting();
+
+// 定时器，每分钟更新一次时间
+const timer = setInterval(updateGreeting, 60000);
+
+onMounted(() => {
+  // 组件挂载后，每分钟更新时间
+  timer;
+});
+
+onUnmounted(() => {
+  // 组件卸载时，清除定时器
+  clearInterval(timer);
+});
 </script>
 
 <template>
-   <h3 class="handEr">下午好</h3> 
+   <h3 class="handEr">{{ greeting }}</h3> 
   <view class="listM">
     <view v-for="item in navIcons" :key="item.id" class="list-item">
       <img :src="item.iconUrl"  @click="link(item.url)"></img>
@@ -63,7 +97,7 @@
     scrollbar-width: none; 
     -ms-overflow-style: none; 
       img{
-    width: 200rpx;
+      width: 200rpx;
       height: auto;
       background: #f0f0f0;
       border-radius: 10rpx;

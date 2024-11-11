@@ -14,7 +14,7 @@ const topList = ref<playItem[]>([])
 const rank = async() => {
   try{
     const res = await topListApi()
-    console.log(res.data.list)
+    // console.log(res.data.list)
     rankList.value = res.data.list
   }catch(e){
     console.log(e)
@@ -43,7 +43,7 @@ const toplist = async () => {
 }
 toplist()
 const goSongDetail = (id:number) => {
-    console.log(id)
+    // console.log(id)
     router.push(`/pages/discover/songDetail?id=${id}`)  
 }
 </script>

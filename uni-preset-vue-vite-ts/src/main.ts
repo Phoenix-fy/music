@@ -1,13 +1,13 @@
-import { createSSRApp } from "vue"
-import App from "./App.vue"
-import { createPinia } from 'pinia'
+import { createSSRApp } from "vue";
+import App from "./App.vue";
+import * as Pinia from 'pinia';
 import secrchDetail from "./pages/search/scarchDetail/searchDetail.vue";
 export function createApp() {
-  const app = createSSRApp(App)
-  const pinia = createPinia()
+  const app = createSSRApp(App);
   app.component("secrchDetail", secrchDetail);
-  app.use(pinia)
+  app.use(Pinia.createPinia());
   return {
     app,
+    Pinia,
   };
 }
