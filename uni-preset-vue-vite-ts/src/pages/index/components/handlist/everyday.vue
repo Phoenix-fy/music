@@ -7,6 +7,7 @@ const Everyday = async () => {
     try{
         const res = await everydayApi()
         console.log(res.data.data!.dailySongs)
+        Every.value = res.data.data!.dailySongs
 
 
     }catch(e){
@@ -42,6 +43,12 @@ const back = () => {
         <view>
            <view><text>播放全部</text><text>VIP歌曲免费畅听</text></view>
            <view><uni-icons type="refresh" size="30"></uni-icons><uni-icons type="bars" size="30"></uni-icons></view>
+        </view>
+    </view>
+    <view v-for="item in Every" key="">
+        <img :src="item.al.picUrl" alt="">
+        <view>
+            <view>{{ item.name }}</view><view><text>{{ item.reason }}</text><text>{{ item.alname }}</text></view>
         </view>
     </view>
 
