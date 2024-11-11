@@ -1,0 +1,1 @@
+import{a as s,b as a,m as n,o,M as t}from"./index-BiOfB6MS.js";import{_ as r}from"./uni-icons.Dc-Vqgnc.js";const e={__name:"Myradar",setup(e){const i=()=>{t()};return(t,e)=>{const c=s(a("uni-icons"),r);return o(),n(c,{type:"left",size:"30",onClick:i})}}};export{e as default};
