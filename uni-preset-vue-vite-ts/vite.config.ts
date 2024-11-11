@@ -13,7 +13,7 @@ export default defineConfig({
   //   }
   // },
   plugins: [uni()],
-  base: 'music',
+  base: '/music',
   server: {
     watch: {
       usePolling: true,  // 启用轮询机制，确保文件更改能被检测到
