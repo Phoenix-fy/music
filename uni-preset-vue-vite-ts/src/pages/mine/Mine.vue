@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useUserStore } from "@/store/user"
 import { userPlaylistApi } from '@/services/index'
-import { ref, watchEffect } from "vue"
+import { ref } from "vue"
 import UserBar from "../../components/userBar/UserBar.vue"
 import Music from "./components/Music.vue"
 import Dynamic from "./components/Dynamic.vue"
@@ -80,7 +80,7 @@ const goSearch = () => {
     </view>
 
     <!-- 去登录 -->
-    <view class="btn" v-show="!store.profile">
+    <view class="btn">
       <view class="userImg"></view>
       <navigator url="/pages/login/login">
         <button>去登录</button>

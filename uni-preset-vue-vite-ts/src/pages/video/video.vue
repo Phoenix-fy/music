@@ -90,8 +90,8 @@ watchEffect(() => {
          <!-- 上一曲 -->
         <uni-icons class="icon" type="arrow-left" size="30" color="#ffffff"></uni-icons>
         <!-- 播放按钮 -->
-        <image class="icon nobg" @click="useAudio.playSong(route.query.id)" src="../discover/png/zanting.png" v-if="useAudio.isPlay === true"></image>
-        <image class="icon nobg" @click="useAudio.playSong(route.query.id)" src="../discover/png/bofang.png" v-if="useAudio.isPlay === false"></image>
+        <image class="icon nobg" @click="useAudio.playSong(route.query.id)" src="../../static/png/zanting.png" v-if="useAudio.isPlay === true"></image>
+        <image class="icon nobg" @click="useAudio.playSong(route.query.id)" src="../../static/png/bofang.png" v-if="useAudio.isPlay === false"></image>
         <!-- 下一曲 -->
         <uni-icons class="icon" size="30" type="arrow-right" color="#ffffff"></uni-icons>
         <uni-icons class="icon" size="30" type="list" color="#ffffff"></uni-icons>
