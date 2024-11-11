@@ -43,7 +43,6 @@ const goSearch = () => {
         </view>
     </view>
     
-  
 
 </template>
 

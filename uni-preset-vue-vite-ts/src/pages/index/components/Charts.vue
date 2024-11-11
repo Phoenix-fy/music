@@ -15,7 +15,7 @@ const topList = ref<playItem[]>([])
 const rank = async() => {
   try{
     const res = await topListApi()
-    console.log(res.data.list)
+    // console.log(res.data.list)
     rankList.value = res.data.list
   }catch(e){
     console.log(e)
