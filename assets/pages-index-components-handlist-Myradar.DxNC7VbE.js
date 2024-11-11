@@ -1,0 +1,1 @@
+import{a as s,b as a,m as n,o,M as t}from"./index-DA2Sepye.js";import{_ as r}from"./uni-icons.U29EC_Be.js";const e={__name:"Myradar",setup(e){const i=()=>{t()};return(t,e)=>{const c=s(a("uni-icons"),r);return o(),n(c,{type:"left",size:"30",onClick:i})}}};export{e as default};
