@@ -101,16 +101,12 @@ const goMine = () => {
 
 <style lang="scss" scoped>
 .nav-bar {
-    width: 100%;
     height: 100rpx;
     background-color: #c20c0c;
     display: flex;
     align-items: center;
     padding: 0 30rpx;
     color: white;
-    position: fixed;
-    top: 0;
-    left: 0;
 }
 
 .back-button {
@@ -128,7 +124,6 @@ const goMine = () => {
   position: relative;
   overflow: hidden;
   color: #ffffff;
-  margin-top: 100rpx;
 }
 
 .bg {
