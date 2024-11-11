@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from 'vue'
 import { getHotListApi } from '@/services/search'
-
+import Singing from '@/components/Singing/Singing.vue'
 const list = ref([])
-
+// const id = ref('')
 
 const Singer = async (detail) => {
     try {
@@ -18,7 +18,16 @@ Singer('artist/list?type=-1')
 
 const ToSingerDetail = (id) => {
     uni.navigateTo({
-	url: `/pages/search/singer/singerDetail/singerDetail?id=${id}`
+	url: `/pages/search/singer/singerDetail/singerDetail?id=${id}`,
+    events: {
+    // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
+    acceptDataFromOpenedPage: function(data) {
+      console.log(data)
+    },
+    someEvent: function(data) {
+      console.log(data)
+    }
+  }
 })
 }
 const Back = () => {
@@ -48,11 +57,13 @@ const Back = () => {
             </scroll-view>
         </view>
     </view>
-    
+    <view class="Singing">
+            <Singing :id="id"/>
+    </view>
     
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .Singer{
     width: 100vb;
     height: 180rpx;
@@ -94,7 +105,6 @@ const Back = () => {
     .list{
         flex: 1;
         padding-top: 180rpx;
-        z-index: -1;
         .list-item-text{
             display: flex;
             padding: 10rpx 20rpx;
@@ -109,5 +119,12 @@ const Back = () => {
             border-radius: 50rpx;
         }
     }
+}
+.Singing{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 120rpx;
+    background-color: #fafbfd;
 }
 </style>
