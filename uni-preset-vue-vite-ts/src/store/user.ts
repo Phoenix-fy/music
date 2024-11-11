@@ -1,37 +1,65 @@
 import { defineStore } from 'pinia'
-import { loginStatusApi,userDetailApi } from '@/services'
+import { loginAccountApi,userDetailApi, userPlaylistApi } from '@/services'
 import { ref } from 'vue'
 
 export const useUserStore = defineStore('user',() => {
-  const detail = ref([])
+  const profile = ref([])
   const account = ref([])
+  const playlist = ref([])
+  const cookie = uni.getStorageSync('curCookie')
+
 
   const getUserDetail = async () => {
-    const res = await userDetailApi(account.value.id)
-    console.log(res)
-    detail.value = {
-      ...res.profile,
-      level: res.level,
-      listenSongs: res.listenSongs,
-      createDays: res.createDays,
+    try{
+      const res = await userDetailApi(account.value.id)
+      // console.log(res.data.profile)
+      profile.value = {
+        ...res.data.profile,
+        level: res.data.level,
+        listenSongs: res.data.listenSongs,
+        createDays: res.data.createDays,
+      }
+      // console.log(profile.value)
+    } catch (e) {
+      console.log(e)
     }
-    console.log(detail.value)
+    
   }
+
+  // 用户歌单
+  const getUserplayList = async () => {
+    try{
+      const res = await userPlaylistApi(account.value.id)
+      // console.log(res.data.playlist)
+      playlist.value = res.data.playlist
+    } catch (e) {
+      console.log(e)
+    }   
+  }
+
   
+  // 登录状态
   const getAccount = async () => {
-    const res = await loginStatusApi()
-    // console.log(res.data)
-    account.value = res.data.data.account
-    if( res.data.data.account ) {
-      getUserDetail()
+    try{
+      const res = await loginAccountApi(cookie)
+      // console.log(res.data)
+      account.value = res.data.account
+      if( res.data.account ) {
+        getUserDetail()
+        getUserplayList()
+      }
+    } catch (e) {
+      console.log(e)
     }
-    console.log(account.value)
+    
   }
   
   return {
     account,
     getAccount,
-    detail,
-    getUserDetail
+    profile,
+    getUserDetail,
+    playlist,
+    getUserplayList
   }
 })

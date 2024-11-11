@@ -7,7 +7,7 @@ import { useUserStore } from "@/store/user"
 const router = useRouter()
 const use = useUserStore()
 
-use.getUserDetail()
+// use.getAccount()
 // 二维码图片
 const qrimg = ref('')
 // 二维码key

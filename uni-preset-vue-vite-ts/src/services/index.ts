@@ -1,5 +1,5 @@
 import request from "./request"
-const cookie = uni.getStorageSync('curCookie')
+
 
 export interface BannerItem {
   imageUrl: string;
@@ -151,11 +151,10 @@ export const getQrStatusApi = (key: string) => {
   })
 }
 // 登录状态
-export const loginStatusApi = () => {
-  return request({url:'https://zyxcl.xyz/music/api/login/status',
-    header: {
-      'Cookie': cookie
-    }
+export const loginAccountApi = (cookie: string) => {
+  return request({url:'https://zyxcl.xyz/music/api/user/account',
+    method: 'POST',
+    data: { cookie }
   })
 }
 // 用户详情
@@ -164,9 +163,6 @@ export const userDetailApi = (uid: string) => {
     url: 'https://zyxcl.xyz/music/api/user/detail',
     data: {
       uid
-    },
-    header: {
-      'Cookie': cookie
     }
   })
 }
@@ -176,6 +172,15 @@ export const userPlaylistApi = (uid: string) => {
     url: 'https://zyxcl.xyz/music/api/user/playlist',
     data: {
       uid
+    }
+  })
+}
+// 用户歌单详情
+export const userPlaylistDetail = (id: number) => {
+  return request({
+    url: 'https://zyxcl.xyz/music/api/playlist/detail',
+    data: {
+      id
     }
   })
 }

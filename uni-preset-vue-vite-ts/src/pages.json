@@ -43,6 +43,12 @@
 			}
 		},
 		{
+			"path": "pages/userPlaylistDetail/UserPlaylistDetail",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
 			"path": "pages/discover/rank",
 			"style": {
 				"navigationStyle": "custom"
@@ -70,30 +76,38 @@
 	},
 	"tabBar": {
 		"color": "#7A7E83",
-		"selectedColor": "#3cc51f",
+		"selectedColor": "#c20c0c",
 		"borderStyle": "black",
 		"backgroundColor": "#ffffff",
-		"height": "50px",
-		"fontSize": "10px",
-		"iconWidth": "24px",
-		"spacing": "3px",
+		"height": "55px",
+		"fontSize": "12px",
+		"iconWidth": "30px",
+		"spacing": "0",
 		"list": [
 			{
 				"pagePath": "pages/index/index",
-				"text": "推荐"
+				"text": "推荐",
+				"iconPath": "static/wymusic.png",
+				"selectedIconPath": "static/wy2.png"
 		  },
 			{
 				"pagePath": "pages/discover/Discover",
-				"text": "发现"
+				"text": "发现",
+				"iconPath": "static/discover.png",
+				"selectedIconPath": "static/discover2.png"
 		  },
 			{
 				"pagePath": "pages/mine/Mine",
-				"text": "我的"
+				"text": "我的",
+				"iconPath": "static/mine.png",
+				"selectedIconPath": "static/mine2.png"
 		  },
 		  {
-			"pagePath": "pages/search/search",
-			"text": "搜索"
-	      }
+				"pagePath": "pages/search/search",
+				"text": "搜索",
+				"iconPath": "static/sear.png",
+				"selectedIconPath": "static/sear2.png"
+	    }
 	  ]
 	},
 	"easycom": {
