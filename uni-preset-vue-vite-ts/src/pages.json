@@ -73,9 +73,6 @@
 			}
 		},
 		{
-<<<<<<< HEAD
-			"path": "components/Singing/Singing",
-=======
 			"path": "pages/index/components/handlist/everyday",
 			"style": {
 				"navigationStyle": "custom"
@@ -83,11 +80,9 @@
 		},
 		{
 			"path": "pages/index/components/handlist/Myradar",
->>>>>>> e16e27c8709bb00c41c2cb6f4f3b2372b123dfd8
 			"style": {
 				"navigationStyle": "custom"
 			}
-		}
 		},
 		{
 			"path": "pages/video/video",
@@ -95,8 +90,6 @@
 				"navigationStyle": "custom"
 			}
 		}
-
-		
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -146,4 +139,5 @@
 			"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
 		}
 	}
+}
 
