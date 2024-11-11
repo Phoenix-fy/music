@@ -67,6 +67,9 @@
 			}
 		},
 		{
+<<<<<<< HEAD
+			"path": "components/Singing/Singing",
+=======
 			"path": "pages/index/components/handlist/everyday",
 			"style": {
 				"navigationStyle": "custom"
@@ -74,6 +77,7 @@
 		},
 		{
 			"path": "pages/index/components/handlist/Myradar",
+>>>>>>> e16e27c8709bb00c41c2cb6f4f3b2372b123dfd8
 			"style": {
 				"navigationStyle": "custom"
 			}
